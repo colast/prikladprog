@@ -9,61 +9,92 @@
 using namespace std;
 
 
-class spell
+void mage::init(int newhp, int newmp, std::string newname)
 {
-public:
-	string name;
-	int dhp;
-	int dmp;
-};
-	
-class mage
+	hp = newhp;
+	mp = newmp;
+	name = newname;
+}
+
+string mage::getname()
 {
-private:
-	 int hp;
-	 int mp;
-	 string name;
+	return this->name;
+}
 
-public:
-
-	void init( int newhp, int newmp, string newname)
-	{
-		this->hp=newhp;
-		this->mp=newmp;
-		this->name=newname;
-	}
-	string getname()
-	{
-		return this->name;
-	}
-	void say(string text)
-	{
-		cout << this->name << " Say " << text;
-	}
-	int cast( spell spl ,  mage target)
-	{
-
-	}
-	void hit( spell spl)
-	{
-
-	}
-};
-
-
-	
-
-int _tmain(int argc, _TCHAR* argv[])
+void mage::say(std::string text)
 {
-	
-	mage boris, vanya;
-	vanya.init()
+	cout << this->name << " says " << text << endl << endl;
+}
 
+int mage::cast(Spell &spl, mage &target)
+{
+	if (hp > 0)
+	{
+		cout << this->name << " hit with " << spl.name << " our enemy " << target.getname() << endl << endl;
+		target.hit(spl);
+	}
 
-
-
-
-
+	else
+	{
+		this->say("I'm is dead");
+	}
 	return 0;
 }
 
+void mage::hit(Spell &spl)
+{
+	this->hp -= spl.dhp;
+	this->mp -= spl.dmp;
+	if (hp <= 0)
+	{
+		this->say(" i am loser");
+	}
+}
+
+
+void main()
+{
+	mage Ivan;
+	mage Boris;
+	spell bolt;
+	spell drain;
+
+	bolt.name = "Bolt";
+	bolt.dhp = 50;
+	bolt.dmp = 0;
+
+	drain.name = "Drain";
+	drain.dhp = 5;
+	drain.dmp = 30;
+
+	Ivan.init(100, 100, "Ivan");
+	Ivan.say("hello");
+
+	Boris.init(100, 100, "Boris");
+	Boris.say("Stop, I'm frendly");
+
+
+	Ivan.cast(bolt, Boris);
+	Boris.cast(drain, Ivan);
+
+	Ivan.cast(bolt, Boris);
+	Boris.cast(drain, Ivan);
+
+	Ivan.cast(bolt, Boris);
+	Boris.cast(drain, Ivan);
+
+	Ivan.cast(bolt, Boris);
+	Boris.cast(drain, Ivan);
+
+	Ivan.cast(bolt, Boris);
+	Boris.cast(drain, Ivan);
+
+	Ivan.cast(bolt, Boris);
+	Boris.cast(drain, Ivan);
+
+	Ivan.cast(bolt, Boris);
+	Boris.cast(drain, Ivan);
+
+	Ivan.cast(bolt, Boris);
+	Boris.cast(drain, Ivan);
+}
