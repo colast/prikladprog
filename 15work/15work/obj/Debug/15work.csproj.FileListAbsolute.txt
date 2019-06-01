@@ -1,9 +1,0 @@
-C:\ivt16\15work\15work\bin\Debug\15work.exe.config
-C:\ivt16\15work\15work\bin\Debug\15work.exe
-C:\ivt16\15work\15work\bin\Debug\15work.pdb
-C:\ivt16\15work\15work\obj\Debug\15work.csprojResolveAssemblyReference.cache
-C:\ivt16\15work\15work\obj\Debug\_15work.Form1.resources
-C:\ivt16\15work\15work\obj\Debug\_15work.Properties.Resources.resources
-C:\ivt16\15work\15work\obj\Debug\15work.csproj.GenerateResource.Cache
-C:\ivt16\15work\15work\obj\Debug\15work.exe
-C:\ivt16\15work\15work\obj\Debug\15work.pdb
